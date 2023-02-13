@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+<head>
+	<title>HTML Náučné</title>
+	<style>
+		.lesson-buttons {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 20px;
+		}
+		button {
+			background-color: #333;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			cursor: pointer;
+			font-size: 16px;
+			margin-bottom: 10px;
+		}
+		button:hover {
+			background-color: #555;
+		}
+        header {
+        background-color: #333;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* Style the navigation menu */
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    nav li {
+        display: inline-block;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        display: block;
+    }
+
+    nav a:hover {
+        background-color: #555;
+    }
+
+    body {
+  background-image: url('modra.plocha.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+
+	</style>
+</head>
+<header>
+    <nav>
+    </nav>
+    <h1>Vyber si lekciu!</h1>
+</header>
+<body>
+	<div class="lesson-buttons">
+        <button>Lekcia 1: Úvod do HTML</button>
+		<button>Lekcia 2: Štruktúra HTML</button>
+		<button>Lekcia 3: Paragrafy a headre</button>
+		<button>Lekcia 4: Tabuľky</button>
+		<button>Lekcia 5: Linky a obrázky</button>
+	</div>
+</body>
+</html>

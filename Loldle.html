@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+<head>
+  <title>Uhádni hrdinu z hry League of Legends</title>
+  <link rel="stylesheet" href="loldle.css">
+</head>
+<body>
+  <h1>Uhádni hrdinu z hry League of Legends</h1>
+  <p>Vieš uhádnuť hrdinu podľa týchto rád?</p>
+
+  <div id="hints">
+    <p>Región: <span id="region"></span></p>
+    <p>Pohlavie: <span id="gender"></span></p>
+    <p>Rok vydania: <span id="age"></span></p>
+    <p>Používa: <span id="cost"></span></p>
+  </div>
+
+  <form id="guess-form">
+    <label for="guess">Zadaj svoj tip:</label>
+    <input type="text" id="guess" placeholder="Meno hrdinu">
+    <button type="submit">Potvrdiť</button>
+  </form>
+  <div style="text-align: center">
+    <button style="margin: auto" onclick="location.reload()">Skús to znova!</button>
+  </div>
+
+  <div style="text-align: center">
+    <a href="user_page.php">
+      <button type="menu">Hlavná stránka</button>
+    </a>
+  </div>
+
+  <p id="result"></p>
+ 
+ 
+
+  <script>
+    const champions = [
+      { name: "Ahri", region: "Demacia", gender: "Žena", age: "Old", cost: "Mana" },
+    { name: "Annie", region: "Demacia", gender: "Žena", age: "2009", cost: "Mana" },
+    { name: "Ashe", region: "Freljord", gender: "Žena", age: "2009", cost: "Mana" },
+    { name: "Garen", region: "Demacia", gender: "Muž", age: "2010", cost: "Mana" },
+    { name: "Jinx", region: "Piltover", gender: "Žena", age: "2013", cost: "Mana" },
+    { name: "Katarina", region: "Noxus", gender: "Žena", age: "2009", cost: "Mana" },
+    { name: "Lee Sin", region: "Ionia", gender: "Muž", age: "2011", cost: "Mana" },
+    { name: "Malphite", region: "Shurima", gender: "Muž", age: "2010", cost: "Mana" },
+    { name: "Nami", region: "Runeterra", gender: "Žena", age: "2012", cost: "Mana" },
+    { name: "Riven", region: "Noxus", gender: "Žena", age: "2011", cost: "Nič" }
+    ];
+
+    // Select the elements we'll need to update
+    const regionElement = document.querySelector("#region");
+    const genderElement = document.querySelector("#gender");
+    const ageElement = document.querySelector("#age");
+    const costElement = document.querySelector("#cost");
+    const resultElement = document.querySelector("#result");
+
+    // Pick a random champion to be the answer
+    const answer = champions[Math.floor(Math.random() * champions.length)];
+
+    
+    regionElement.textContent = answer.region;
+    genderElement.textContent = answer.gender;
+    ageElement.textContent = answer.age;
+    costElement.textContent = answer.cost;
+
+    // Handle form submission
+    const form = document.querySelector("#guess-form");
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      // Get the player's guess
+      const guess = document.querySelector("#guess").value;
+
+      // Check if the guess is correct
+      if (guess.toLowerCase() === answer.name.toLowerCase()) {
+        resultElement.textContent = "Správne! Vyhral si!";
+      } else {
+        resultElement.textContent = "Nesprávne. Správna odpoveď bola: " + answer.name;
+      }
+    });
+  </script>
+</body>
+</html>
